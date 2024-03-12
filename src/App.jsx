@@ -7,7 +7,7 @@ import { UserTableContext } from './store/context-userTable'
 export default function App() {
   // const userTable = getTable();
   const [userTable, setUserTable] = useState([]);
-  const isDeleted = false;
+  let isDeleted = false;
   useEffect(() => {
     axios.get('http://localhost:3001/exp/findAll')
       .then((response) => {
@@ -15,15 +15,22 @@ export default function App() {
           setUserTable(response.data.data)
         }
       })
-  }, [isDeleted, userTable])
+  }, [isDeleted])
 
   return (
-    <>
+      <UserTableContext.Provider value = {{
+        // userTable: userTable,
+        // setUserTable: setUserTable,
+        // isDeleted: isDeleted
+        userTable,
+        setUserTable,
+        isDeleted
+        }}>
         <UserDetail></UserDetail>
-        <TableList userTable={userTable}
+        <TableList 
           setUserTable={setUserTable}
           isDeleted={isDeleted}
         ></TableList>
-    </>
+      </UserTableContext.Provider>
   )
 }

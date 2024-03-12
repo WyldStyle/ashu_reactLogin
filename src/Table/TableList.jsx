@@ -1,19 +1,11 @@
+import { UserTableContext } from "../store/context-userTable";
 import TableRow from "./TableRow";
-export default function TableList({ userTable,setUserTable,isDeleted }) {
+import { useContext } from "react";
+export default function TableList() {
   // console.log("inTableList",userTable);
+  const contextObj = useContext(UserTableContext);
+  const userTable = contextObj.userTable
   return (
-    // <div>
-    //   <div>
-    //     <div>Username</div>
-    //     <div>Password</div>
-    //   </div>
-    //   {/* <div>{JSON.stringify(userTable)}</div> */}
-    //   <div>
-    //     {userTable.map((singleUser) =>( 
-    //       <TableRow singleUser={singleUser}></TableRow>
-    //      ))}
-    //   </div>
-    // </div>
     <table className="table table-striped " data-bs-theme="dark">
       <thead>
         <th>Username</th>
@@ -23,9 +15,8 @@ export default function TableList({ userTable,setUserTable,isDeleted }) {
       <tbody>
         {
           userTable.map((singleUser) => (
-            <TableRow singleUser={singleUser} userTable= {userTable}
-            setUserTable = {setUserTable}
-            isDeleted={isDeleted}></TableRow>
+            <TableRow singleUser={singleUser} 
+            ></TableRow>
           ))
         }
       </tbody>

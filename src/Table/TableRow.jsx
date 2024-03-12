@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useEffect } from "react";
+
+import { useContext, useEffect} from "react";
 import TableCell from "./TableCell"
+import { UserTableContext } from "../store/context-userTable";
 
 function getFields(obj) {
   const keys = Object.keys(obj);
@@ -13,7 +15,13 @@ function getFields(obj) {
   return res;
 }
 
-export default function TableRow({ singleUser, userTable, setUserTable, isDeleted }) {
+export default function TableRow({singleUser}) {
+
+  // const contextObj = useContext(UserTableContext);
+  // const userTable = contextObj.userTable;
+  // const setUserTable = contextObj.setUserTable;
+  // let isDeleted = contextObj.isDeleted;
+  let {userTable, setUserTable, isDeleted} = useContext(UserTableContext);
 
   const singleUserX = getFields(singleUser);
   console.log("inTbleRowSingle", singleUserX);
