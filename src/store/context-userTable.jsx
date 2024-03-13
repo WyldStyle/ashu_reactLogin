@@ -4,5 +4,7 @@ export const UserTableContext = createContext({
   setUserInfo:()=>{},
   userTable: [],
 setUserTable:()=>{},
-setRepaint:()=>{}
+setRepaint:()=>{},
+editMode:false,
+setEditMode:()=>{}
 });

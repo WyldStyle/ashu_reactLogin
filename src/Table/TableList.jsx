@@ -9,7 +9,7 @@ export default function TableList() {
   // const contextObj = useContext(UserTableContext);
   // const userTable = contextObj.userTable
   // const setRepaint= contextObj.setRepaint
-  const { userTable, setRepaint,userInfo, setUserInfo,editMode,setEditMode} = useContext(UserTableContext)
+  const { userTable, setRepaint, setUserInfo,editMode,setEditMode} = useContext(UserTableContext)
   const editRow = (singleUser) => {
     setUserInfo(() => {
       return {
