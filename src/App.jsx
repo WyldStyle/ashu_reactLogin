@@ -12,7 +12,8 @@ export default function App() {
   const [repaint, setRepaint] = useState(false);
   const [userInfo, setUserInfo] = useState({
     username: '',
-    password: ''
+    password: '',
+    college: ''
   })
   const [editMode, setEditMode] = useState({
     mode: false,
@@ -44,8 +45,8 @@ export default function App() {
       }}>
         <UserDetail ></UserDetail>
         <TableList
-          setUserTable={setUserTable}
-          setRepaint={setRepaint}
+          // setUserTable={setUserTable}
+          // setRepaint={setRepaint}
         ></TableList>
       </UserTableContext.Provider>
     </>

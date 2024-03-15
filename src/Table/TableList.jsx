@@ -14,7 +14,8 @@ export default function TableList() {
     setUserInfo(() => {
       return {
         username: singleUser.username,
-          password: singleUser.password
+          password: singleUser.password,
+          college: singleUser.college
       }
     })
     // console.log(userInfo);
@@ -22,25 +23,27 @@ export default function TableList() {
       mode: true,
       id: singleUser._id
     }))
-    console.log(editMode);
+    // console.log(editMode);
   }
   const deleteRow = async (_id) => {
     await axios.delete(`http://localhost:3001/exp/delExpEntry/${_id}`)
       .then((response) => {
         // console.log('tableList response by mongodb',response.data);
         setRepaint((prev) => !prev)
+        window.alert('We lost a soldier!')
       })
       .catch((error) => {
         console.log(error);
       })
-    console.log(_id);
+    // console.log(_id);
   }
   return (
     <table className="table table-striped " data-bs-theme="dark">
       <thead>
-        <th>Username</th>
-        <th>password</th>
-        <th>Actions</th>
+        <th>Username👩</th>
+        <th>Password🔑</th>
+        <th>College🎓</th>
+        <th>Actions🛠❌</th>
       </thead>
       <tbody>
         {
